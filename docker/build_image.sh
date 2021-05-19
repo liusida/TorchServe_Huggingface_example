@@ -74,7 +74,7 @@ do
           ;;
     esac
 done
-echo ${BUILD_TYPE}
+
 if [ "${BUILD_TYPE}" == "dev" ] && ! $CUSTOM_TAG ;
 then
   DOCKER_TAG="pytorch/torchserve:dev-$MACHINE"
