@@ -1,6 +1,8 @@
 #/bin/sh
 set -x
 
+mkdir -p logs
+
 docker run -it --rm --name=torchserve \
     --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 \
     -p8080:8080 \
