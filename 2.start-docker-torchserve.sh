@@ -4,11 +4,14 @@ set -x
 if [ -z "$1" ]; then
     # by default
     PORT=8080
+    MODE="it"
 else
+    # this is just for me
     PORT=$1
+    MODE="d"
 fi
 
-docker run -it --rm --name=torchserve \
+docker run -${MODE} --rm --name=torchserve \
     --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 \
     -p${PORT}:8080 \
     -p8081:8081 \
