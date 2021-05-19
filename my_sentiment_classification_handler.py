@@ -31,13 +31,26 @@ class MySentimentClassification(BaseHandler):
         print(f"HANDER>inference> x: {x}")
         y = self.model(x)
         print(f"HANDER>inference> y: {y}")
-        prediction = y.logits.argmax(dim=1).numpy()
-        print(f"HANDER>inference> prediction: {prediction}")
-        return prediction # [0] for negative, [1] for positive
+        return y
 
-    def postprocess(self, prediction):
+    def postprocess(self, y):
+        print(f"HANDER>postprocess> y: {y}")
+
+        prediction = y.logits.argmax(dim=1).numpy()
         print(f"HANDER>postprocess> prediction: {prediction}")
+        logits = y.logits.detach().numpy()
+        print(f"HANDER>postprocess> logits: {logits}")
+
         ret = []
-        for p in prediction:
-            ret.append({"sentiment": self.sentiment_labels[p]})
+        for p, logit in zip(prediction, logits):
+            ret.append({
+                "sentiment": self.sentiment_labels[p],
+                "logits" : {
+                    "positive": str(logit[1]),
+                    "negative": str(logit[0]),
+                },
+                "provider": "star-lab",
+            })
+        print(f"HANDER>postprocess> ret: {ret}")
+
         return ret
