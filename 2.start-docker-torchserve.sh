@@ -11,6 +11,5 @@ docker run -it --rm --name=torchserve \
     -p7070:7070 \
     -p7071:7071 \
     --mount type=bind,source=$PWD/model_store,target=/tmp/models \
-    --mount type=bind,source=$PWD/logs,target=/home/model-server/logs \
     pytorch/torchserve:latest-cpu \
     torchserve --model-store=/tmp/models
