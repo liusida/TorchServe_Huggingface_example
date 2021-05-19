@@ -25,7 +25,7 @@ Open another terminal:
 ./1.make-archiver.sh
 
 cd docker
-sh ./build_image.sh
+sh ./build_image.sh --buildtype production
 cd ..
 
 ./2.start-docker-torchserve.sh
