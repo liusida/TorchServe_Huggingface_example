@@ -2,7 +2,7 @@
 
 Learning how to make a Huggingface handler for TorchServe
 
-# Usage:
+## Usage:
 
 ```bash
 ./0.download-model-from-huggingface.sh
@@ -17,7 +17,7 @@ Open another terminal:
 ./3.register-model.sh
 ```
 
-# API:
+## API:
 
 Postman Documentation:
 
