@@ -1,11 +1,16 @@
 #/bin/sh
 set -x
 
-mkdir -p logs
+if [ -z "$1" ]; then
+    # by default
+    PORT=8080
+else
+    PORT=$1
+fi
 
 docker run -it --rm --name=torchserve \
     --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 \
-    -p8080:8080 \
+    -p${PORT}:8080 \
     -p8081:8081 \
     -p8082:8082 \
     -p7070:7070 \
