@@ -1,4 +1,4 @@
 torchserve==0.3.1
 transformers==4.6.0
-torch==1.7.1+cpu
+torch==1.7.1
 torch-model-archiver==0.3.1
