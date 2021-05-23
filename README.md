@@ -42,3 +42,9 @@ Open another terminal:
 Postman Documentation:
 
 [https://documenter.getpostman.com/view/9297280/TzRYdQmu](https://documenter.getpostman.com/view/9297280/TzRYdQmu)
+
+## Minimum Instance:
+
+vCPU: 2
+Mem: 2G
+Disk: 16G
